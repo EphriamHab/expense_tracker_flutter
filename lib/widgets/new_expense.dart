@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:expense_tracker_flutter/models/expense.dart';
+import 'package:flutter/widgets.dart';
 
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key, required this.onAddExpense});
@@ -179,11 +180,12 @@ class _NewExpenseState extends State<NewExpense> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            _selectedDate == null
-                                ? 'No date selected'
-                                : formatter.format(_selectedDate!),
-                          ),
+                             Text(
+                                _selectedDate == null
+                                    ? 'No Date  Selected'
+                                    : formatter.format(_selectedDate!),
+                               ),
+                             
                           IconButton(
                             onPressed: _presentDatePicker,
                             icon: const Icon(
@@ -211,12 +213,14 @@ class _NewExpenseState extends State<NewExpense> {
                       Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                      
                           children: [
-                            Text(
-                              _selectedDate == null
-                                  ? 'No date selected'
-                                  : formatter.format(_selectedDate!),
+                            Flexible(
+                              child: Text(
+                                _selectedDate == null
+                                    ? 'No date selected'
+                                    : formatter.format(_selectedDate!),
+                              ),
                             ),
                             IconButton(
                               onPressed: _presentDatePicker,
@@ -229,7 +233,7 @@ class _NewExpenseState extends State<NewExpense> {
                       ),
                     ],
                   ),
-                const SizedBox(height: 16),
+              
                 if (width >= 600)
                   Row(children: [
                     const Spacer(),
